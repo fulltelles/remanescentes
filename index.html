@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060d16" />
+  <title>Congresso de Jovens | 2ª Temporada Remanescentes - O Avanço</title>
+  <meta name="description"
+    content="Congresso de Jovens - 2ª Temporada Remanescentes: O Avanço (Filipenses 3:13-14). Dias 14 e 15 de Novembro às 19h. Ministério Ungidos Para Vencer." />
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Congresso de Jovens | 2ª Temporada Remanescentes - O Avanço" />
+  <meta property="og:description" content="Dias 14 e 15 de Novembro às 19h • Rua Clarice Lispector - Florais Léia (Ao lado da Rimacon). Ministério Ungidos Para Vencer." />
+  <meta property="og:image" content="https://fulltelles.github.io/remanescentes/assets/hero-bg.png" />
+  <meta property="og:url" content="https://fulltelles.github.io/remanescentes/" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="mobile-app">
+    <!-- ==================== SESSÃO 1: TELA CHEIA (ARTE + CONTAGEM + DOCK) ==================== -->
+    <section class="fullscreen-showcase" id="inicio">
+      <!-- Imagem 2 em Tela Cheia com blend suave -->
+      <div class="artwork-stage">
+        <img src="assets/hero-bg.png"
+          alt="Congresso de Jovens - 2ª Temporada Remanescentes: O Avanço - Aline Gama, Lucas Barcelar e Paulo Mourais"
+          class="artwork-img" />
+
+        <!-- Topo minimalista flutuante (inspirado na referência) -->
+        <header class="floating-topbar">
+          <a href="#mais-informacoes" class="topbar-icon-btn" aria-label="Mais informações">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="4" y1="12" x2="14" y2="12"></line>
+              <line x1="4" y1="17" x2="18" y2="17"></line>
+            </svg>
+          </a>
+
+          <div class="topbar-center-tag">MINISTÉRIO UNGIDOS PARA VENCER</div>
+
+          <button type="button" class="topbar-icon-btn" id="topShareBtn" aria-label="Compartilhar evento">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </button>
+        </header>
+
+        <!-- Título flutuante no topo da imagem como na referência -->
+        <div class="floating-sky-header">
+          <p class="sky-eyebrow">14 E 15 DE NOVEMBRO • ÀS 19H</p>
+          <h1 class="sky-title">CONGRESSO DE JOVENS</h1>
+          <div class="sky-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Gradiente de transição suave para o painel escuro inferior -->
+        <div class="artwork-bottom-fade" aria-hidden="true"></div>
+      </div>
+
+      <!-- Painel Inferior Moderno (Estética da 1ª imagem de referência) -->
+      <div class="modern-bottom-panel">
+        <div class="countdown-label-row">
+          <span class="cyan-dot"></span>
+          <span id="countdownStatusText">CONTAGEM REGRESSIVA • DIA 14 ÀS 19H</span>
+        </div>
+
+        <!-- Contagem Regressiva em destaque no estilo tipográfico limpo da referência -->
+        <div class="modern-countdown" aria-live="polite">
+          <div class="cd-metric">
+            <div class="cd-number-wrap">
+              <span class="cd-accent">◆</span>
+              <span class="cd-number" id="cd-days">00</span>
+            </div>
+            <span class="cd-unit">DIAS</span>
+          </div>
+
+          <div class="cd-metric">
+            <div class="cd-number-wrap">
+              <span class="cd-number" id="cd-hours">00</span>
+            </div>
+            <span class="cd-unit">HORAS</span>
+          </div>
+
+          <div class="cd-metric">
+            <div class="cd-number-wrap">
+              <span class="cd-number" id="cd-minutes">00</span>
+            </div>
+            <span class="cd-unit">MINUTOS</span>
+          </div>
+
+          <div class="cd-metric">
+            <div class="cd-number-wrap">
+              <span class="cd-number cd-sec-highlight" id="cd-seconds">00</span>
+            </div>
+            <span class="cd-unit">SEGUNDOS</span>
+          </div>
+        </div>
+
+        <!-- Marcadores dourados inspirados na referência -->
+        <div class="gold-markers" aria-hidden="true">
+          <div class="marker-group">
+            <span>✦</span><span>✦</span><span>✦</span><span>✦</span><span>✦</span>
+          </div>
+          <div class="marker-group">
+            <span>✦</span><span>✦</span><span>✦</span><span>✦</span><span>✦</span>
+          </div>
+        </div>
+
+        <!-- Linha divisória com diamantes nas pontas (idêntica à referência) -->
+        <div class="timeline-divider-block">
+          <div class="timeline-meta">
+            <span>14 E 15 NOV</span>
+            <span>INÍCIO ÀS 19H</span>
+            <span>FLORAIS LÉIA</span>
+          </div>
+          <div class="diamond-line" aria-hidden="true">
+            <span class="diamond">◆</span>
+            <span class="line-track"></span>
+            <span class="diamond">◆</span>
+          </div>
+        </div>
+
+        <!-- Barra de Ação Principal (Dock inferior igual à referência + botões diretos) -->
+        <div class="action-dock">
+          <!-- Ícones rápidos à esquerda (Localização e Instagram) -->
+          <div class="dock-quick-icons">
+            <a href="https://maps.app.goo.gl/ciUZGgc5M2XpVGJ2A" target="_blank" rel="noopener noreferrer"
+              class="dock-icon-link" title="Localização do Evento" aria-label="Abrir localização no Google Maps">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </a>
+
+            <a href="https://www.instagram.com/jovens_ungidosparavencer/" target="_blank" rel="noopener noreferrer"
+              class="dock-icon-link" title="Instagram @jovens_ungidosparavencer" aria-label="Abrir Instagram Oficial">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+
+            <a href="https://wa.me/557799369625?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Congresso%20de%20Jovens%20-%202%C2%AA%20Temporada%20Remanescentes%20(14%20e%2015%20de%20Novembro%20%C3%A0s%2019h)."
+              target="_blank" rel="noopener noreferrer" class="dock-icon-link" title="WhatsApp (77) 9936-9625"
+              aria-label="Falar no WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Botão Central ciano sutil: Mais Informações -->
+          <a href="#mais-informacoes" class="dock-center-pill">
+            <span>MAIS INFOS</span>
+          </a>
+
+          <!-- Botão Destaque Dourado/Âmbar à direita (igual ao botão laranja/dourado da referência) -->
+          <a href="https://maps.app.goo.gl/ciUZGgc5M2XpVGJ2A" target="_blank" rel="noopener noreferrer"
+            class="dock-gold-cta">
+            LOCALIZAÇÃO
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SESSÃO 2: BOTÕES DIRETOS & MAIS INFORMAÇÕES ==================== -->
+    <section class="details-section" id="mais-informacoes">
+      <!-- Logomarca Oficial enviada pelo usuário -->
+      <div class="brand-logo-showcase">
+        <img src="assets/logo-light.png" alt="Logomarca Remanescentes - O Avanço" class="official-logo" />
+      </div>
+
+      <!-- Os 3 Botões Principais em Destaque -->
+      <div class="primary-buttons-list">
+        <a href="https://maps.app.goo.gl/ciUZGgc5M2XpVGJ2A" target="_blank" rel="noopener noreferrer"
+          class="modern-action-card card-gold" id="btnLocationHero">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="card-body">
+            <strong>Localização do Evento</strong>
+            <span>Rua Clarice Lispector • Florais Léia (Ao lado da Rimacon)</span>
+          </div>
+          <span class="card-chevron">↗</span>
+        </a>
+
+        <a href="https://www.instagram.com/jovens_ungidosparavencer/" target="_blank" rel="noopener noreferrer"
+          class="modern-action-card" id="btnInstagramHero">
+          <div class="card-icon icon-ig">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <div class="card-body">
+            <strong>Instagram Oficial</strong>
+            <span>@jovens_ungidosparavencer</span>
+          </div>
+          <span class="card-chevron">↗</span>
+        </a>
+
+        <a href="https://wa.me/557799369625?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Congresso%20de%20Jovens%20-%202%C2%AA%20Temporada%20Remanescentes%20(14%20e%2015%20de%20Novembro%20%C3%A0s%2019h)."
+          target="_blank" rel="noopener noreferrer" class="modern-action-card" id="btnWhatsappInfo">
+          <div class="card-icon icon-wa">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+              </path>
+            </svg>
+          </div>
+          <div class="card-body">
+            <strong>Mais Informações • WhatsApp</strong>
+            <span>+55 77 9936-9625 • Falar com a organização</span>
+          </div>
+          <span class="card-chevron">↗</span>
+        </a>
+
+        <button type="button" class="modern-action-card card-share" id="shareEventBtn">
+          <div class="card-icon icon-share">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </div>
+          <div class="card-body">
+            <strong>Compartilhar Link do Evento</strong>
+            <span>Envie este convite para seus amigos</span>
+          </div>
+          <span class="card-chevron">🔗</span>
+        </button>
+      </div>
+
+      <!-- ==================== SESSÃO: PRECISA DE UMA CARONA? ==================== -->
+      <div class="ride-section" id="carona">
+        <div class="ride-header">
+          <div class="ride-icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+              <circle cx="7" cy="17" r="2"></circle>
+              <path d="M9 17h6"></path>
+              <circle cx="17" cy="17" r="2"></circle>
+            </svg>
+          </div>
+          <div class="ride-title-group">
+            <span class="ride-tag">APOIO AO JOVEM</span>
+            <h2>Precisa de uma carona?</h2>
+          </div>
+        </div>
+
+        <p class="ride-description">
+          Não fique de fora do Congresso! Fale com a nossa equipe no WhatsApp para combinarmos sua carona até o local.
+        </p>
+
+        <a href="https://wa.me/557799369625?text=Ol%C3%A1!%20Preciso%20de%20uma%20carona%20para%20o%20Congresso%20de%20Jovens%20-%202%C2%AA%20Temporada%20Remanescentes%20(14%20e%2015%20de%20Novembro%20%C3%A0s%2019h)."
+          target="_blank" rel="noopener noreferrer" class="ride-whatsapp-btn" id="btnRideWhatsapp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+            </path>
+          </svg>
+          <span>Pedir Carona pelo WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Resumo Direto do Evento -->
+      <div class="minimal-info-box">
+        <div class="info-pill-row">
+          <div class="info-mini-col">
+            <span class="mini-label">DATA E HORÁRIO</span>
+            <strong>14 e 15 de Nov • 19h</strong>
+          </div>
+          <div class="info-mini-divider"></div>
+          <div class="info-mini-col">
+            <span class="mini-label">TEMA BÍBLICO</span>
+            <strong>Filipenses 3:13-14</strong>
+          </div>
+        </div>
+
+        <div class="address-bar">
+          <p>📍 Rua Clarice Lispector - Florais Léia - Ao lado da Rimacon</p>
+          <button type="button" class="copy-pill-btn" id="copyAddressBtn">Copiar endereço</button>
+        </div>
+      </div>
+
+      <footer class="minimal-footer">
+        <span>MINISTÉRIO UNGIDOS PARA VENCER</span>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

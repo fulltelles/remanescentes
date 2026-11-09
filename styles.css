@@ -1,0 +1,694 @@
+:root {
+  --bg-deep: #040911;
+  --bg-panel: #060e18;
+  --bg-card: rgba(11, 22, 36, 0.85);
+  --cyan-accent: #2dd4bf;
+  --gold-soft: #f5b963;
+  --gold-warm: #e89b44;
+  --gold-line: rgba(232, 168, 92, 0.55);
+  --text-white: #f8fafc;
+  --text-muted: #7f95ae;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-deep);
+  color: var(--text-white);
+  font-family: var(--font-sans);
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--bg-deep);
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* Container Mobile em Tela Cheia */
+.mobile-app {
+  width: 100%;
+  max-width: 460px;
+  min-height: 100dvh;
+  background-color: var(--bg-panel);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+@media (min-width: 500px) {
+  body {
+    padding: 16px 0;
+    background: radial-gradient(circle at 50% 20%, #0f1f33 0%, #03070d 100%);
+  }
+  .mobile-app {
+    border-radius: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+  }
+}
+
+/* ==================== SESSÃO 1: SHOWCASE TELA CHEIA ==================== */
+.fullscreen-showcase {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--bg-panel);
+}
+
+/* Palco da 2ª imagem em tela cheia */
+.artwork-stage {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.artwork-img {
+  width: 100%;
+  height: 100%;
+  min-height: 62dvh;
+  max-height: 74dvh;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  user-select: none;
+}
+
+/* Barra superior minimalista sobre o céu */
+.floating-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: linear-gradient(180deg, rgba(8, 22, 36, 0.42) 0%, transparent 100%);
+}
+
+.topbar-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(10, 22, 36, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.topbar-center-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* Cabeçalho flutuante no topo do céu (inspirado na 1ª imagem) */
+.floating-sky-header {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  text-align: center;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.sky-eyebrow {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+  margin-bottom: 3px;
+}
+
+.sky-title {
+  font-size: 1.32rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+}
+
+.sky-lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.sky-lines span:first-child {
+  width: 58px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 2px;
+}
+
+.sky-lines span:last-child {
+  width: 28px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+}
+
+/* Transição perfeita entre a imagem e o painel escuro inferior */
+.artwork-bottom-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90px;
+  background: linear-gradient(
+    180deg,
+     rgba(6, 14, 24, 0) 0%,
+    rgba(6, 14, 24, 0.72) 55%,
+    var(--bg-panel) 100%
+  );
+  pointer-events: none;
+}
+
+/* ==================== PAINEL INFERIOR MODERNO ==================== */
+.modern-bottom-panel {
+  position: relative;
+  z-index: 4;
+  background: linear-gradient(180deg, var(--bg-panel) 0%, #040911 100%);
+  padding: 4px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.countdown-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.cyan-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan-accent);
+  box-shadow: 0 0 8px var(--cyan-accent);
+}
+
+/* Contagem Regressiva com estética limpa da referência */
+.modern-countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  text-align: center;
+  padding: 2px 0;
+}
+
+.cd-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cd-number-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cd-accent {
+  font-size: 0.55rem;
+  color: var(--cyan-accent);
+  transform: translateY(-2px);
+}
+
+.cd-number {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-sec-highlight {
+  color: var(--gold-soft);
+}
+
+.cd-unit {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Estrelas / Marcadores Dourados da referência */
+.gold-markers {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 12px;
+  color: var(--gold-soft);
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  opacity: 0.85;
+}
+
+/* Linha divisória com diamantes nas extremidades (igual à referência) */
+.timeline-divider-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.timeline-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+.diamond-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--gold-soft);
+}
+
+.diamond {
+  font-size: 0.6rem;
+  line-height: 1;
+}
+
+.line-track {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--gold-line), rgba(245, 185, 99, 0.85), var(--gold-line));
+  margin: 0 2px;
+}
+
+/* Dock Inferior de Botões (Idêntico à estética da 1ª imagem) */
+.action-dock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.dock-quick-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 5px 8px;
+  border-radius: 999px;
+}
+
+.dock-icon-link {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.dock-icon-link:active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* Pill central com sublinhado ciano luminoso (igual à referência) */
+.dock-center-pill {
+  flex: 1;
+  max-width: 120px;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 12px 11px;
+  border-radius: 16px;
+  background: rgba(13, 27, 42, 0.75);
+  color: var(--text-white);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  position: relative;
+  border: 1px solid rgba(45, 212, 191, 0.18);
+  box-shadow: inset 0 -2.5px 0 var(--cyan-accent);
+}
+
+/* Botão Dourado/Âmbar à direita (igual ao botão laranja/dourado da referência) */
+.dock-gold-cta {
+  padding: 13px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f6c376 0%, #e59943 100%);
+  color: #0b131e;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(232, 155, 68, 0.35);
+  white-space: nowrap;
+  transition: transform 0.15s ease;
+}
+
+.dock-gold-cta:active {
+  transform: scale(0.97);
+}
+
+/* ==================== SESSÃO 2: LOGOMARCA & BOTÕES COMPLETOS ==================== */
+.details-section {
+  background: #040911;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 28px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.brand-logo-showcase {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 6px;
+}
+
+.official-logo {
+  width: 220px;
+  max-width: 72%;
+  height: auto;
+  filter: drop-shadow(0 4px 18px rgba(245, 185, 99, 0.18));
+}
+
+.primary-buttons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.modern-action-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(12, 23, 38, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  text-decoration: none;
+  color: var(--text-white);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.modern-action-card:active {
+  transform: scale(0.985);
+}
+
+.card-gold {
+  background: linear-gradient(135deg, rgba(245, 185, 99, 0.16) 0%, rgba(12, 23, 38, 0.92) 100%);
+  border-color: rgba(245, 185, 99, 0.42);
+}
+
+.card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: rgba(245, 185, 99, 0.18);
+  color: var(--gold-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-ig {
+  background: rgba(225, 48, 108, 0.16);
+  color: #f472b6;
+}
+
+.icon-wa {
+  background: rgba(45, 212, 191, 0.15);
+  color: var(--cyan-accent);
+}
+
+.card-share {
+  width: 100%;
+  font-family: var(--font-sans);
+  text-align: left;
+  cursor: pointer;
+}
+
+.icon-share {
+  background: rgba(148, 163, 184, 0.16);
+  color: #e2e8f0;
+}
+
+/* ==================== SESSÃO: PRECISA DE UMA CARONA? ==================== */
+.ride-section {
+  background: linear-gradient(145deg, rgba(16, 33, 52, 0.92) 0%, rgba(8, 17, 29, 0.96) 100%);
+  border: 1px solid rgba(45, 212, 191, 0.28);
+  border-radius: 20px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.ride-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ride-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: rgba(45, 212, 191, 0.14);
+  border: 1px solid rgba(45, 212, 191, 0.32);
+  color: var(--cyan-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ride-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.ride-tag {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--cyan-accent);
+  text-transform: uppercase;
+}
+
+.ride-title-group h2 {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-top: 1px;
+}
+
+.ride-description {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+}
+
+.ride-whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+  color: #041318;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(45, 212, 191, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.ride-whatsapp-btn:active {
+  transform: scale(0.98);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.card-body strong {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.card-body span {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-chevron {
+  font-size: 1rem;
+  color: var(--gold-soft);
+  font-weight: 700;
+}
+
+/* Caixa minimalista de resumo */
+.minimal-info-box {
+  background: rgba(10, 19, 31, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-pill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-mini-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  text-align: center;
+}
+
+.mini-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+.info-mini-col strong {
+  font-size: 0.82rem;
+  color: var(--gold-soft);
+}
+
+.info-mini-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.address-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.address-bar p {
+  font-size: 0.74rem;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+.copy-pill-btn {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 185, 99, 0.4);
+  background: rgba(245, 185, 99, 0.12);
+  color: var(--gold-soft);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.minimal-footer {
+  text-align: center;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(127, 149, 174, 0.6);
+  padding-top: 4px;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #0d1b2a;
+  color: var(--text-white);
+  border: 1px solid var(--gold-soft);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
